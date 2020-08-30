@@ -102,7 +102,6 @@ export const Cockade: React.FunctionComponent = () => (
             max-width: 70vh;
             margin: 0 auto;
             position: relative;
-            padding-bottom: 100%;
         `}
     >
         <Coccarda shadow />
@@ -110,7 +109,7 @@ export const Cockade: React.FunctionComponent = () => (
         <h1 css={css`
             animation: ${opacity} 4s;
             position: absolute;
-            top: 30%;
+            padding-top: 100%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 3rem;
