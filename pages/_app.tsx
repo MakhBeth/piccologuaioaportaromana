@@ -1,7 +1,7 @@
 import 'modern-css-reset/dist/reset.min.css'
 import styled from '@emotion/styled'
 import {colors} from '../constants/colors'
-import {keyframes} from '@emotion/core'
+import {css, keyframes, Global} from '@emotion/core'
 
 const intro = keyframes`
   from, 50% {
@@ -48,19 +48,28 @@ const intro = keyframes`
   }
 `
 
+const background = keyframes`
+  0%, 50%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+`
+
 const Container = styled.div`
   animation: ${intro} 2s ease-out;
-  height: 0vh;
   background-color: ${colors.main.low};
   color: black;
   position: relative;
-  font-family: sans-serif;
+  padding-top: 3vw;
   min-height: 100vh;
   text-align: center;
   width: 100vw;
   z-index: 0;
 
   &::before {
+    animation: ${background} 3s ease-out;  
     content: "";
     position: absolute;
     width: 100%;
@@ -68,12 +77,26 @@ const Container = styled.div`
     top: 0;
     left: 0;
     z-index: -1;
-    background: linear-gradient(90deg, #161122 21px, transparent 1%) center, linear-gradient(#161122 21px, transparent 1%) center, transparent;
-    background-size: 26px 26px;
+    background-image: radial-gradient(#fff 0.5vw, transparent 0.5vw),
+      radial-gradient(#fff 0.5vw, transparent 0.5vw);
+    background-position: 0 0, 2vw 2vw;
+    background-size: 4vw 4vw;
+    opacity: 0.5;
   }
 `
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
-  return <Container><Component {...pageProps} /></Container>
+  return (
+    <Container>
+      <Global styles={css`
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        body {
+          font-family: 'Indie Flower', cursive;
+          background-color: ${colors.main.low}
+        }`
+      } />
+      <Component {...pageProps} />
+    </Container>
+  )
 }

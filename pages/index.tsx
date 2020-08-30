@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Cockade } from '../svg/cockade'
 
 export default function Home() {
   return (
@@ -9,9 +10,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
-          Hello World... Almost!
-        </h1>
+        <Cockade />
       </main>
 
     </div>
