@@ -14,6 +14,7 @@ const intro = keyframes`
   to {
     min-height: 100vh;
     height: 100vh;
+    overflow: visible;
   }
 
   70% {
@@ -61,11 +62,13 @@ const Container = styled.div`
   animation: ${intro} 2s ease-out;
   background-color: ${colors.main.low};
   color: black;
+  margin: 0 auto;
+  overflow: hidden;
   position: relative;
   padding-top: 3vw;
   min-height: 100vh;
   text-align: center;
-  width: 100vw;
+  width: 95vw;
   z-index: 0;
 
   &::before {

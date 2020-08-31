@@ -20,7 +20,7 @@ const bounce = keyframes`
 const bounce2 = keyframes`
     0%, 50% {
         transform: scale(0);
-        margin: 0;
+        margin: -3vw;
     }
 
     80% {
