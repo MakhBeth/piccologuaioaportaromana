@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "standard",
+    "standard-jsx",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/indent": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/prefer-interface": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "css-modules/no-undef-class": [
+      1,
+      {
+        "camelCase": true
+      }
+    ],
+    "css-modules/no-unused-class": [
+      1,
+      {
+        "camelCase": true
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  }
+}
