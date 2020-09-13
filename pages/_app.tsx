@@ -1,7 +1,7 @@
 import 'modern-css-reset/dist/reset.min.css'
 import styled from '@emotion/styled'
-import {colors} from '../constants/colors'
-import {css, keyframes, Global} from '@emotion/core'
+import { colors } from '../constants/colors'
+import { css, keyframes, Global } from '@emotion/core'
 
 const intro = keyframes`
   from, 50% {
@@ -50,7 +50,7 @@ const intro = keyframes`
 `
 
 const background = keyframes`
-  0%, 50%{
+  0%, 90%{
     opacity: 0;
   }
   100% {
@@ -72,8 +72,8 @@ const Container = styled.div`
   z-index: 0;
 
   &::before {
-    animation: ${background} 3s ease-out;  
-    content: "";
+    animation: ${background} 4s ease-out;
+    content: '';
     position: absolute;
     width: 100%;
     height: 100%;
@@ -92,12 +92,14 @@ const Container = styled.div`
 export default function MyApp({ Component, pageProps }) {
   return (
     <Container>
-      <Global styles={css`
-        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-        body {
-          font-family: 'Indie Flower', cursive;
-        }`
-      } />
+      <Global
+        styles={css`
+          @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+          body {
+            font-family: 'Indie Flower', cursive;
+          }
+        `}
+      />
       <Component {...pageProps} />
     </Container>
   )
