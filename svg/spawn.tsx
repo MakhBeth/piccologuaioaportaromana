@@ -8,15 +8,55 @@ const animations = {
       transform: translate(0.2%, 0.5%) scale(1.001);
     }
   `,
+  breath: keyframes`
+    0% {
+      transform: translate(0, 0);
+    }
+    75% {
+      transform: translate(-0.5%, -1%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  `,
+  fart: keyframes`
+    0% {
+      transform: translate(-3%, 3%) scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-3%, 3%) scale(0.8);
+      opacity: 0;
+    }
+    70% {
+      transform: translate(0) scale(0.9);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0) scale(1);
+      opacity: 0;
+    }
+  `,
 }
 
 export const Spawn: FunctionComponent<{ addcss: any }> = ({ addcss }) => (
   <div css={addcss}>
     <svg version="1.1" x="0px" y="0px" viewBox="0 0 337.6 190.8">
       <path
+        data-name="fart"
+        css={css`
+          animation: ${animations.fart} 10s infinite;
+          transform-origin: 50% 50%;
+          fill: ${colors.neutral.high};
+        `}
+        d="M316.4,30.1c-3.4-4.8-8-7.2-11.2-5.7c-4,1.9-4.4,9.2-0.9,16.3c0.8,1.6,1.7,3,2.7,4.3
+          c-4.8,5.4-13.7,10.4-13.7,10.4s-18.2,13.9-8,6.6c6.1-4.3,17.8-4.6,26.2-4c0.1,0.3,0.3,0.6,0.4,1c4.2,8.6,11.5,13.8,16.3,11.4
+          c2.8-1.4,4.2-5,3.9-9.5c3.9-3,4.1-11.2,0.2-19.2C328.3,33.2,321.2,28.2,316.4,30.1z"
+      />
+      <path
         data-name="shadow"
         css={css`
-          fill: ${colors.neutral.main};
+          fill: ${colors.neutral.high};
         `}
         d="M62.6,133.6c0,0-38,40.4,1.9,53.3c39.9,12.9,73.3-5.1,77.2-7.3c3.9-2.2,24.3,9.1,45.3-5 c6.4-4.3,28.1,7.3,41.6-5.6c4.6-4.4,21.4,6.7,34.8,1.1c6-2.5,14.8-0.8,23.3-5.6c10.5-5.9,13.2-19.8,5.7-29.2l-8.7-18.6L62.6,133.6z"
       />
@@ -24,6 +64,8 @@ export const Spawn: FunctionComponent<{ addcss: any }> = ({ addcss }) => (
         <path
           data-name="upperbody"
           css={css`
+            animation: ${animations.breath} 3s infinite;
+            transform-origin: 0 0;
             fill: ${colors.skin.lowest};
           `}
           d="M171.1,82.6c3.8,1.8,13.6-6.2,19.5-11.5c3.6-3.3,7.7-5.9,12.2-7.7c32.3-13.3,31-8.7,42-9.3
@@ -70,6 +112,8 @@ export const Spawn: FunctionComponent<{ addcss: any }> = ({ addcss }) => (
           data-name="upperbodyskin"
           css={css`
             fill: ${colors.skin.neutral};
+            animation: ${animations.breath} 3s infinite;
+            transform-origin: 0 0;
           `}
           d="M242.9,51.4c-31.2-1.6-54,16.9-61.6,25.8c-1.4,1.6-4.2,3.5-6.1,4.5l-6.9,1.3l0,0.5
             c1.7,17.3-11.7,47.4-11.9,47.7c-2,5.8-1.7,10.3,0.9,13.4c3.3,4,9.6,4.7,13.8,4.7c2.5,0,4.3-0.3,4.5-0.3l0.1,0l25.3-17.6l-2.4-8
@@ -755,15 +799,6 @@ export const Spawn: FunctionComponent<{ addcss: any }> = ({ addcss }) => (
           />
         </g>
       </g>
-      <path
-        data-name="fart"
-        css={css`
-          fill: ${colors.neutral.main};
-        `}
-        d="M316.4,30.1c-3.4-4.8-8-7.2-11.2-5.7c-4,1.9-4.4,9.2-0.9,16.3c0.8,1.6,1.7,3,2.7,4.3
-    c-4.8,5.4-13.7,10.4-13.7,10.4s-18.2,13.9-8,6.6c6.1-4.3,17.8-4.6,26.2-4c0.1,0.3,0.3,0.6,0.4,1c4.2,8.6,11.5,13.8,16.3,11.4
-    c2.8-1.4,4.2-5,3.9-9.5c3.9-3,4.1-11.2,0.2-19.2C328.3,33.2,321.2,28.2,316.4,30.1z"
-      />
     </svg>
   </div>
 )

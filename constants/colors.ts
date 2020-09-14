@@ -6,7 +6,8 @@ export const colors = {
     high: '#4eacc5',
   },
   neutral: {
-    main: '#F7F7F7',
+    main: '#DEDEDE',
+    high: '#F7F7F7',
     highest: '#ffffff',
   },
   skin: {

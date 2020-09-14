@@ -18,8 +18,8 @@ const bounce = keyframes`
 `
 
 const rotation = keyframes`
-  to {
-    transform: rotateZ(360deg);
+  100% {
+    transform: rotate(360deg);
   }
 `
 
@@ -134,22 +134,37 @@ export const Cockade: React.FunctionComponent = () => (
         top: 62%;
       `}
     />
-    <div
+    <svg
+      version="1.1"
+      x="0px"
+      y="0px"
+      viewBox="0 0 1000 1000"
       css={css`
+        position: absolute;
+        z-index: 1000;
         animation: ${rotation} 100s infinite linear;
         position: absolute;
         width: 85%;
-        border: 2px dashed ${colors.main.low};
         height: 85%;
-        border-radius: 999vw;
         top: 0;
         left: 0;
         z-index: 1;
         top: 7.5%;
         left: 7.5%;
-        opacity: 0.5;
       `}
-    />
+    >
+      <circle
+        cx="50%"
+        cy="50%"
+        r="500px"
+        css={css`
+          stroke-width: 2;
+          stroke-dasharray: 10, 20;
+          fill: none;
+          stroke: ${colors.main.neutral};
+        `}
+      />
+    </svg>
 
     <h1
       css={css`
@@ -158,7 +173,7 @@ export const Cockade: React.FunctionComponent = () => (
         padding-top: 65%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 2rem;
+        font-size: 1rem;
       `}
     >
       Hello World... Almost!
