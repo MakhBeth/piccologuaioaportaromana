@@ -24,11 +24,11 @@ const animations = {
       transform: translate(-3%, 3%) scale(0.8);
       opacity: 0;
     }
-    50% {
+    70% {
       transform: translate(-3%, 3%) scale(0.8);
       opacity: 0;
     }
-    70% {
+    80% {
       transform: translate(0) scale(0.9);
       opacity: 1;
     }
