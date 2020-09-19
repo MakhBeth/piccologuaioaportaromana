@@ -21,4 +21,6 @@ export const colors = {
     neutral: '#F6D65D',
     low: '#CCAA3E',
   },
+  red: `#c23616`,
+  yellow: `#fbc531`,
 }
