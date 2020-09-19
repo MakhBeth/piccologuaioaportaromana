@@ -1,5 +1,7 @@
-/** @jsx jsx */ import { FunctionComponent } from 'react'
-import { css, jsx, keyframes } from '@emotion/core'
+/** @jsx jsx */
+
+import { FunctionComponent } from 'react'
+import { css, jsx, keyframes, SerializedStyles } from '@emotion/core'
 import { colors } from '../constants/colors'
 
 const animations = {
@@ -39,9 +41,20 @@ const animations = {
   `,
 }
 
-export const Spawn: FunctionComponent<{ addcss: any }> = ({ addcss }) => (
+const a = css()
+
+export const Spawn: FunctionComponent<{ addcss: SerializedStyles }> = ({
+  addcss,
+}) => (
   <div css={addcss}>
-    <svg version="1.1" x="0px" y="0px" viewBox="0 0 337.6 190.8">
+    <svg
+      aria-labelledby="spawnid"
+      version="1.1"
+      x="0px"
+      y="0px"
+      viewBox="0 0 337.6 190.8"
+    >
+      <title id="spawnid">Disegno di bambino</title>
       <path
         data-name="fart"
         css={css`

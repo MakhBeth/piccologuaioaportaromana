@@ -6,6 +6,7 @@ export const colors = {
     high: '#4eacc5',
   },
   neutral: {
+    lowest: '#202020',
     main: '#DEDEDE',
     high: '#F7F7F7',
     highest: '#ffffff',

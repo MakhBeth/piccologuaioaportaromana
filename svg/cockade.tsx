@@ -2,6 +2,7 @@
 import { css, jsx, keyframes } from '@emotion/core'
 import { colors } from '../constants/colors'
 import { Spawn } from './spawn'
+import { Write } from './write'
 
 const bounce = keyframes`
     0%, 50% {
@@ -70,6 +71,7 @@ const Coccarda: FunctionComponent<{
     `}
   >
     <svg
+      aria-labelledby="cockadesvg"
       version="1.1"
       x="0px"
       y="0px"
@@ -82,6 +84,7 @@ const Coccarda: FunctionComponent<{
             `
       }
     >
+      <title id="cockadesvg">Coccarda di festeggiamento</title>
       <path
         d="M452.2,225.8c0-8.3-2.9-16-7.6-22c-3-3.9-3.7-9-1.8-13.6c2.9-7,3.6-15,1.5-22.8c-2.2-8-6.9-14.7-13.1-19.3
             c-3.9-2.9-5.9-7.8-5.3-12.6c1-7.5-0.4-15.4-4.5-22.4c-4.2-7.2-10.4-12.4-17.6-15.3c-4.6-1.8-7.7-6-8.4-10.8
@@ -114,8 +117,8 @@ export const Cockade: React.FunctionComponent = () => (
       animation: ${opacity} 2s;
       height: 90vw;
       margin: 0 auto;
-      max-height: 70vh;
-      max-width: 70vh;
+      max-height: 60vh;
+      max-width: 60vh;
       position: relative;
       width: 90vw;
     `}
@@ -132,6 +135,15 @@ export const Cockade: React.FunctionComponent = () => (
         bottom: 0%;
         position: absolute;
         top: 62%;
+      `}
+    />
+    <Write
+      addcss={css`
+        left: 20%;
+        position: absolute;
+        top: 12%;
+        width: 70%;
+        z-index: 0;
       `}
     />
     <svg
@@ -165,18 +177,5 @@ export const Cockade: React.FunctionComponent = () => (
         `}
       />
     </svg>
-
-    <h1
-      css={css`
-        animation: ${opacity} 4s;
-        position: absolute;
-        padding-top: 65%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1rem;
-      `}
-    >
-      Hello World... Almost!
-    </h1>
   </div>
 )
