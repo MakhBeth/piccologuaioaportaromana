@@ -8,7 +8,4 @@ The only thing I could do was to be supportive of My sweet half. So, Clo, this i
 
 And this is also for you little kid. It will be fun in 203X see this page and try to understand what your father had in mind. This will be that kind of weird situations that I hope we will experience often. 
 
-Ok. Stop with the daddy late night talking. This is a GitHub readme after all. 
-Let's see the
-
-### geeky part 🤓 
+Ok. Stop with the daddy late night talking. This is a GitHub readme after all.
