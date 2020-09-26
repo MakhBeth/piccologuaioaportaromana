@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from '@emotion/core'
+import { count } from 'console'
 import { useCallback, useEffect, useState } from 'react'
 import { colors } from '../constants/colors'
 
@@ -20,14 +21,14 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
     const countTo = time.getTime()
     const now = new Date().getTime()
     const timeDifference = countTo - now
-    return timeDifference
     return Math.ceil((timeDifference / secondsInADay) * 1)
   }, [])
 
-  const [countdown, setCountdown] = useState(updateCountdown())
+  const [countdown, setCountdown] = useState(null)
 
   useEffect(() => {
-    setInterval(() => setCountdown(updateCountdown()), 1 * 1000)
+    setCountdown(updateCountdown())
+    setInterval(() => setCountdown(updateCountdown()), secondsInADay * 1000)
   }, [])
 
   return (
@@ -70,14 +71,16 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
             font-size: calc(0.8rem + (16 * 1) * (100vw - 320px) / (2400 - 320));
           `}
         >
-          Ci vedremo tra circa:
+          Ci vedremo{' '}
+          {countdown ? <span>tra circa</span> : <span>più o meno il</span>}:
         </h3>
         <h2
           css={css`
             line-height: 0.8;
           `}
         >
-          {countdown} <small>giorni</small>
+          {countdown || time.toLocaleDateString()}{' '}
+          {countdown && <small>giorni</small>}
         </h2>
       </div>
     </div>
