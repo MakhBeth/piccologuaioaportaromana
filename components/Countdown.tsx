@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from '@emotion/core'
-import { useMemo } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { colors } from '../constants/colors'
 
 const enterAnimation = keyframes`
@@ -15,13 +15,18 @@ const enterAnimation = keyframes`
 export const Countdown: React.FunctionComponent<{ time: Date }> = ({
   time,
 }) => {
-  const HowManyDays = useMemo(() => {
+  const secondsInADay = 60 * 60 * 1000 * 24
+  const updateCountdown = useCallback(() => {
     const countTo = time.getTime()
     const now = new Date().getTime()
     const timeDifference = countTo - now
-
-    const secondsInADay = 60 * 60 * 1000 * 24
     return Math.ceil((timeDifference / secondsInADay) * 1)
+  }, [])
+
+  const [countdown, setCountdown] = useState(updateCountdown())
+
+  useEffect(() => {
+    setInterval(() => setCountdown(updateCountdown()), secondsInADay * 1000)
   }, [])
 
   return (
@@ -71,7 +76,7 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
             line-height: 0.8;
           `}
         >
-          {HowManyDays} <small>giorni</small>
+          {countdown} <small>giorni</small>
         </h2>
       </div>
     </div>
