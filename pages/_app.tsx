@@ -60,7 +60,7 @@ const background = keyframes`
 
 const Container = styled.div`
   animation: ${intro} 2s ease-out;
-  background-color: ${colors.main.low};
+  background-color: ${colors.main.neutral};
   color: black;
   margin: 0 auto;
   overflow: hidden;
