@@ -171,7 +171,7 @@ export const Cockade: React.FunctionComponent = () => (
         r="500px"
         css={css`
           stroke-width: 2;
-          stroke-dasharray: 10, 20;
+          stroke-dasharray: 30, 40;
           fill: none;
           stroke: ${colors.main.neutral};
         `}
