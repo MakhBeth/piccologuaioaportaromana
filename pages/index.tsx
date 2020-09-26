@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 import Head from 'next/head'
+import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
 import { Cockade } from '../svg/cockade'
 
@@ -30,6 +31,7 @@ export default function Home() {
         >
           <Countdown time={new Date('2021-02-15')} />
         </div>
+        <Content />
       </main>
     </div>
   )

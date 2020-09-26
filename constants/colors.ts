@@ -1,3 +1,4 @@
+import { opacify } from 'polished'
 type Variant = 'lowest' | 'low' | 'neutral' | 'high' | 'highest' | 'accent'
 
 type Color = Record<Variant, string>
@@ -102,6 +103,6 @@ export const male: Colors = {
   green: '#28EBCD',
 }
 
-export const colors: Colors = ((): Colors => {
-  return female
-})()
+export const colors = ((theme): Colors & { shadow: string } => {
+  return { shadow: opacify(-0.25, theme.main.low), ...theme }
+})(female)

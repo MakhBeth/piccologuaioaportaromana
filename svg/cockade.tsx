@@ -52,8 +52,7 @@ const opacity = keyframes`
 
 const shadowCss = css`
   animation: ${bounce2} 3s;
-  fill: ${colors.main.low};
-  opacity: 0.75;
+  fill: ${colors.shadow};
   filter: blur(10px);
 `
 

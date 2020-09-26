@@ -2,14 +2,13 @@
 import { css, jsx, keyframes } from '@emotion/core'
 import { useMemo } from 'react'
 import { colors } from '../constants/colors'
-import { opacify } from 'polished'
 
 const enterAnimation = keyframes`
   from {
     width: 0vw;
   }
   to {
-    width: 98vw;
+    width: 95vw;
   }
 `
 
@@ -30,7 +29,7 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
       css={css`
         animation: ${enterAnimation} 1s 4.5s;
         animation-fill-mode: forwards;
-        font-size: calc(2rem + (16 * 2) * (100vw - 320px) / (2400 - 320));
+        font-size: calc(2rem + (16 * 2) * (100vh - 320px) / (2400 - 320));
         width: 0%;
         overflow: hidden;
         padding-bottom: 1em;
@@ -39,9 +38,9 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
       <div
         css={css`
           background-color: ${colors.neutral.highest};
-          box-shadow: 0 2vw 10px ${opacify(-0.25, colors.main.low)};
+          box-shadow: 0 2vw 10px ${colors.shadow};
           padding: 0.5em 0 1em;
-          width: 98vw;
+          width: 95vw;
           position: relative;
 
           &::before,
