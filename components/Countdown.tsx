@@ -20,6 +20,7 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
     const countTo = time.getTime()
     const now = new Date().getTime()
     const timeDifference = countTo - now
+    return timeDifference
     return Math.ceil((timeDifference / secondsInADay) * 1)
   }, [])
 
