@@ -27,7 +27,7 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
   const [countdown, setCountdown] = useState(updateCountdown())
 
   useEffect(() => {
-    setInterval(() => setCountdown(updateCountdown()), secondsInADay * 1000)
+    setInterval(() => setCountdown(updateCountdown()), 1 * 1000)
   }, [])
 
   return (
