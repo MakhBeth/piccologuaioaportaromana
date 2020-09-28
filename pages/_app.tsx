@@ -94,7 +94,7 @@ const Container = styled.div`
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
-      OneSignal.initialize('b0b43e14-0899-475a-8931-95ccbc942c77', {
+      OneSignal.initialize(process.env.onsignalKey, {
         notifyButton: {
           enable: true,
         },
