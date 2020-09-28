@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { colors } from '../constants/colors'
 
-export const Button = styled.button`
+export const Button: any = styled.button`
   border: 0;
   outline: none;
   margin-left: 0.5rem;

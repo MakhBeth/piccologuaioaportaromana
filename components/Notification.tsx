@@ -12,9 +12,6 @@ export const Notification = () => {
       try {
         if (typeof window !== 'undefined' && window.document) {
           await OneSignal.initialize(process.env.onsignalKey, {
-            notifyButton: {
-              enable: false,
-            },
             subdomainName: 'piccologuaioap',
             safari_web_id:
               'web.onesignal.auto.28be2e0f-48c0-43fd-877a-95cc3c6fc0d9',
