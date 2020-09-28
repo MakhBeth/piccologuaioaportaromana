@@ -2,6 +2,8 @@ import 'modern-css-reset/dist/reset.min.css'
 import styled from '@emotion/styled'
 import { colors } from '../constants/colors'
 import { css, keyframes, Global } from '@emotion/core'
+import OneSignal from 'react-onesignal'
+import { useEffect } from 'react'
 
 const intro = keyframes`
   from, 50% {
@@ -90,6 +92,18 @@ const Container = styled.div`
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.document) {
+      OneSignal.initialize('2b904660-5c50-4fa8-a921-d8664b931c4f', {
+        notifyButton: {
+          enable: true,
+        },
+        subdomainName: 'piccologuaioap',
+        safari_web_id:
+          'web.onesignal.auto.28be2e0f-48c0-43fd-877a-95cc3c6fc0d9',
+      })
+    }
+  }, [])
   return (
     <Container>
       <Global

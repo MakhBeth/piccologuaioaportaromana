@@ -79,7 +79,7 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
             line-height: 0.8;
           `}
         >
-          {countdown || time.toLocaleDateString()}{' '}
+          {countdown || `${time.getDay()} - ${time.getMonth()}`}{' '}
           {countdown && <small>giorni</small>}
         </h2>
       </div>

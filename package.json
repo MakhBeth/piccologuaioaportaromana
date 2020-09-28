@@ -15,7 +15,8 @@
     "next": "9.3.5",
     "polished": "^3.6.7",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-onesignal": "^1.7.0"
   },
   "devDependencies": {
     "@types/node": "^14.6.0",
