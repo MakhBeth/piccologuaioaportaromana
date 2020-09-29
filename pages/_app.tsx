@@ -2,6 +2,7 @@ import 'modern-css-reset/dist/reset.min.css'
 import styled from '@emotion/styled'
 import { colors } from '../constants/colors'
 import { css, keyframes, Global } from '@emotion/core'
+import { NextSeo } from 'next-seo'
 
 const intro = keyframes`
   from, 50% {
@@ -92,6 +93,22 @@ const Container = styled.div`
 export default function MyApp({ Component, pageProps }) {
   return (
     <Container>
+      <NextSeo
+        title="Piccolo Guaio a Porta Romana"
+        description="I miei genitori hanno deciso di mettere online sta roba. Dategli un occhio, fateli felici"
+        canonical="https://piccologuaioaportaromana.com/"
+        openGraph={{
+          url: 'https://piccologuaioaportaromana.com/',
+          title: 'Piccolo Guaio a Porta Romana',
+          description:
+            'I miei genitori hanno deciso di mettere online sta roba. Dategli un occhio, fateli felici',
+          images: [{ url: 'https://piccologuaioaportaromana.com/preview.jpg' }],
+          site_name: 'PiccoloGuaioAPortaRomana',
+        }}
+        twitter={{
+          handle: '@makhbeth',
+        }}
+      />
       <Global
         styles={css`
           @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');

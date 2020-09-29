@@ -10,8 +10,7 @@ export const Notification = () => {
     if (typeof window !== 'undefined' && window.document) {
       OneSignal.initialize(process.env.onsignalKey, {
         subdomainName: 'piccologuaioap',
-        safari_web_id:
-          'web.onesignal.auto.28be2e0f-48c0-43fd-877a-95cc3c6fc0d9',
+        safari_web_id: process.env.onesignalSafariKey,
         allowLocalhostAsSecureOrigin: true,
       })
     }
