@@ -5,6 +5,7 @@ import { css, keyframes, Global } from '@emotion/core'
 import { NextSeo } from 'next-seo'
 import App from 'next/app'
 import { appWithTranslation } from '../i18n'
+import { useEffect, useState } from 'react'
 
 const beat = keyframes`
   0%, 20%, 40%, 60%, 80% {
@@ -22,7 +23,7 @@ const beat = keyframes`
 `
 
 const Heart = styled.div`
-  position: absolute;
+  position: fixed;
   margin: auto;
   top: 0;
   right: 0;
@@ -102,6 +103,14 @@ const Container = styled.div`
 
 // This default export is required in a new `pages/_app.js` file.
 function MyApp({ Component, pageProps }) {
+  const [timer, setTimer] = useState(false)
+  useEffect(() => {
+    // fixes safari render bug
+    const timer = setTimeout(() => {
+      setTimer(true)
+    }, 250)
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <Container>
       <NextSeo
@@ -128,8 +137,8 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       />
+      {timer && <Component {...pageProps} />}
       <Heart />
-      <Component {...pageProps} />
     </Container>
   )
 }
