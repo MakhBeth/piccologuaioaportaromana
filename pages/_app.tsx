@@ -94,12 +94,12 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <Container>
       <NextSeo
-        title="Piccolo Guaio a Porta Romana"
+        title="Hello World... almost!"
         description="I miei genitori hanno deciso di mettere online sta roba. Dategli un occhio, fateli felici"
         canonical="https://piccologuaioaportaromana.com/"
         openGraph={{
           url: 'https://piccologuaioaportaromana.com/',
-          title: 'Piccolo Guaio a Porta Romana',
+          title: 'Hello World... almost!',
           description:
             'I miei genitori hanno deciso di mettere online sta roba. Dategli un occhio, fateli felici',
           images: [{ url: 'https://piccologuaioaportaromana.com/preview.jpg' }],
