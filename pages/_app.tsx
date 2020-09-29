@@ -123,7 +123,7 @@ function MyApp({ Component, pageProps }) {
       <Global
         styles={css`
           body {
-            z-index: 1;
+            font-family: 'Indie Flower', cursive;
           }
         `}
       />
