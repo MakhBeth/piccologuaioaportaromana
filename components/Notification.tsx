@@ -8,7 +8,6 @@ export const Notification = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
-      console.log(process.env.onesignalSafariKey)
       OneSignal.initialize(process.env.onsignalKey, {
         subdomainName: 'piccologuaioap',
         safari_web_id: process.env.onesignalSafariKey,
