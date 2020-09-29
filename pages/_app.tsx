@@ -122,14 +122,8 @@ function MyApp({ Component, pageProps }) {
       />
       <Global
         styles={css`
-          @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
           body {
-            font-family: 'Indie Flower', cursive;
-          }
-          *,
-          *::after,
-          *::before {
-            animation: none !important;
+            z-index: 1;
           }
         `}
       />
