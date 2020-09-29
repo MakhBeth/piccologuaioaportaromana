@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from '@emotion/core'
+import { FunctionComponent } from 'react'
+import { useTranslation } from '../i18n'
 import { Button } from './Button'
 import { Notification } from './Notification'
-import { TFunction } from 'next-i18next'
-import { withTranslation } from '../i18n'
 
 const enterAnimation = keyframes`
   from {
@@ -16,7 +16,8 @@ const enterAnimation = keyframes`
   }
 `
 
-const Content = ({ t }: { readonly t: TFunction }) => {
+export const Content: FunctionComponent = () => {
+  const { t } = useTranslation()
   return (
     <section
       css={css`
@@ -44,11 +45,3 @@ const Content = ({ t }: { readonly t: TFunction }) => {
     </section>
   )
 }
-
-Content.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
-})
-
-const ContentWithTranslation = withTranslation('common')(Content)
-
-export { ContentWithTranslation as Content }

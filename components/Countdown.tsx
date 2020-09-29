@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from '@emotion/core'
-import { TFunction } from 'next-i18next'
 import { useCallback, useEffect, useState } from 'react'
 import { colors } from '../constants/colors'
-import { withTranslation } from '../i18n'
+import { useTranslation } from '../i18n'
 
 const enterAnimation = keyframes`
   from {
@@ -14,7 +13,10 @@ const enterAnimation = keyframes`
   }
 `
 
-const Countdown = ({ time, t }: { time: Date; readonly t: TFunction }) => {
+export const Countdown: React.FunctionComponent<{ time: Date }> = ({
+  time,
+}) => {
+  const { t } = useTranslation()
   const secondsInADay = 60 * 60 * 1000 * 24
   const updateCountdown = useCallback(() => {
     const countTo = time.getTime()
@@ -84,14 +86,3 @@ const Countdown = ({ time, t }: { time: Date; readonly t: TFunction }) => {
     </div>
   )
 }
-
-Countdown.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
-})
-
-const CountdownWithTranslation: any = withTranslation('common')(
-  Countdown as any
-)
-
-const a = () => <CountdownWithTranslation time={new Date()} />
-export { CountdownWithTranslation as Countdown }

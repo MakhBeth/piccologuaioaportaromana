@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
-import { TFunction } from 'next-i18next'
 import Head from 'next/head'
 import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
-import { withTranslation } from '../i18n'
+import { useTranslation, withTranslation } from '../i18n'
 import { Cockade } from '../svg/cockade'
 
 const Home = () => {
+  const { i18n } = useTranslation()
+  console.log(i18n)
   return (
     <div className="container">
       <Head>
@@ -40,7 +41,7 @@ const Home = () => {
 }
 
 Home.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'footer'],
+  namespacesRequired: ['common'],
 })
 
 export default withTranslation('common')(Home)
