@@ -41,15 +41,17 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
         width: 0%;
         overflow: hidden;
         padding-bottom: 1em;
+        will-change: width;
       `}
     >
       <div
         css={css`
           background-color: ${colors.neutral.highest};
-          box-shadow: 0 2vw 10px ${colors.shadow};
+          box-shadow: 0 2vw 0 ${colors.shadow};
           padding: 0.5em 0 1em;
           width: 95vw;
           position: relative;
+          will-change: width;
 
           &::before,
           &::after {

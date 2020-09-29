@@ -53,7 +53,7 @@ const opacity = keyframes`
 const shadowCss = css`
   animation: ${bounce2} 3s;
   fill: ${colors.shadow};
-  filter: blur(10px);
+  will-change: transform;
 `
 
 const Coccarda: FunctionComponent<{
@@ -67,6 +67,7 @@ const Coccarda: FunctionComponent<{
       left: ${shadow ? 3 : 0}vw;
       top: ${shadow ? 3 : 0}vw;
       width: 100%;
+      will-change: transform;
     `}
   >
     <svg
@@ -114,6 +115,7 @@ export const Cockade: React.FunctionComponent = () => (
   <div
     css={css`
       animation: ${opacity} 2s;
+      will-change: transform;
       height: 90vw;
       margin: 0 auto;
       max-height: 60vh;
@@ -127,6 +129,7 @@ export const Cockade: React.FunctionComponent = () => (
     <Spawn
       addcss={css`
         animation: ${opacity} 3s;
+        will-change: opacity;
         left: 51%;
         transform: translate(-50%, -50%);
         font-size: 3rem;
@@ -154,6 +157,7 @@ export const Cockade: React.FunctionComponent = () => (
         position: absolute;
         z-index: 1000;
         animation: ${rotation} 100s infinite linear;
+        will-change: transform;
         position: absolute;
         width: 85%;
         height: 85%;

@@ -23,6 +23,7 @@ export const Content: FunctionComponent = () => {
       css={css`
         animation: ${enterAnimation} 1s 5s;
         animation-fill-mode: backwards;
+        will-change: transform, opacity;
       `}
     >
       <h3

@@ -6,51 +6,51 @@ import { NextSeo } from 'next-seo'
 import App from 'next/app'
 import { appWithTranslation } from '../i18n'
 
-const intro = keyframes`
-  from, 50% {
-    min-height: 0vh;
-    height: 0vh;
-    overflow: hidden;
-    opacity: 0;
-  }
+// const intro = keyframes`
+//   from, 50% {
+//     min-height: 0vh;
+//     height: 0vh;
+//     overflow: hidden;
+//     opacity: 0;
+//   }
 
-  to {
-    min-height: 100vh;
-    height: 100vh;
-    overflow: visible;
-  }
+//   to {
+//     min-height: 100vh;
+//     height: 100vh;
+//     overflow: visible;
+//   }
 
-  70% {
-    min-height: 100vh;
-    height: 100vh;
-    opacity: 1;
-  }
+//   70% {
+//     min-height: 100vh;
+//     height: 100vh;
+//     opacity: 1;
+//   }
 
-  75%,78% {
-    min-height: 80vh;
-    height: 80vh;
-  }
+//   75%,78% {
+//     min-height: 80vh;
+//     height: 80vh;
+//   }
 
-  80% {
-    min-height: 100vh;
-    height: 100vh;
-  }
+//   80% {
+//     min-height: 100vh;
+//     height: 100vh;
+//   }
 
-  85%,86% {
-    min-height: 90vh;
-    height: 90vh;
-  }
+//   85%,86% {
+//     min-height: 90vh;
+//     height: 90vh;
+//   }
 
-  90% {
-    min-height: 100vh;
-    height: 100vh;
-  }
+//   90% {
+//     min-height: 100vh;
+//     height: 100vh;
+//   }
 
-  95%,96% {
-    min-height: 95vh;
-    height: 95vh;
-  }
-`
+//   95%,96% {
+//     min-height: 95vh;
+//     height: 95vh;
+//   }
+// `
 
 const background = keyframes`
   0%, 90%{
@@ -62,7 +62,6 @@ const background = keyframes`
 `
 
 const Container = styled.div`
-  animation: ${intro} 2s ease-out;
   background-color: ${colors.main.neutral};
   color: black;
   margin: 0 auto;
@@ -76,6 +75,7 @@ const Container = styled.div`
 
   &::before {
     animation: ${background} 4s ease-out;
+    will-change: opacity;
     content: '';
     position: absolute;
     width: 100%;

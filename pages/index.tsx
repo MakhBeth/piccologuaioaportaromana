@@ -7,8 +7,6 @@ import { useTranslation, withTranslation } from '../i18n'
 import { Cockade } from '../svg/cockade'
 
 const Home = () => {
-  const { i18n } = useTranslation()
-  console.log(i18n)
   return (
     <div className="container">
       <Head>

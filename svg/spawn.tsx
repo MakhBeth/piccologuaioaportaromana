@@ -58,6 +58,7 @@ export const Spawn: FunctionComponent<{ addcss: SerializedStyles }> = ({
       <path
         data-name="fart"
         css={css`
+          will-change: transform;
           animation: ${animations.fart} 10s infinite;
           transform-origin: 50% 50%;
           fill: ${colors.neutral.high};
@@ -77,6 +78,7 @@ export const Spawn: FunctionComponent<{ addcss: SerializedStyles }> = ({
         <path
           data-name="upperbody"
           css={css`
+            will-change: transform;
             animation: ${animations.breath} 3s infinite;
             transform-origin: 0 0;
             fill: ${colors.skin.lowest};
@@ -125,6 +127,8 @@ export const Spawn: FunctionComponent<{ addcss: SerializedStyles }> = ({
           data-name="upperbodyskin"
           css={css`
             fill: ${colors.skin.neutral};
+
+            will-change: transform;
             animation: ${animations.breath} 3s infinite;
             transform-origin: 0 0;
           `}
@@ -722,6 +726,7 @@ export const Spawn: FunctionComponent<{ addcss: SerializedStyles }> = ({
       <g
         data-name="pacifier"
         css={css`
+          will-change: transform;
           animation: ${animations.pacifier} 1s infinite ease-in-out;
         `}
       >

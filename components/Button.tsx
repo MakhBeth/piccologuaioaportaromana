@@ -13,15 +13,15 @@ export const Button: any = styled.button`
   background-color: ${colors.neutral.highest};
   font-size: calc(1.2rem + (16 * 1) * (100vw - 320px) / (1800 - 320));
   border-radius: 0.25rem;
-  box-shadow: 10px 10px 10px ${colors.shadow};
+  box-shadow: 10px 10px 0 ${colors.shadow};
   margin-bottom: 2rem;
   transition: all 300ms cubic-bezier(0, 0.94, 0.13, 1.115);
   position: relative;
+  will-change: transform, box-shadow;
 
   &:hover {
     transform: translate(-0.5rem, -0.5rem);
-    box-shadow: calc(10px + 0.5rem) calc(10px + 0.5rem) calc(10px + 0.5rem)
-      ${colors.shadow};
+    box-shadow: calc(10px + 0.5rem) calc(10px + 0.5rem) 0 ${colors.shadow};
   }
 
   &::after {
