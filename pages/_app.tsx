@@ -3,6 +3,8 @@ import styled from '@emotion/styled'
 import { colors } from '../constants/colors'
 import { css, keyframes, Global } from '@emotion/core'
 import { NextSeo } from 'next-seo'
+import App from 'next/app'
+import { appWithTranslation } from '../i18n'
 
 const intro = keyframes`
   from, 50% {
@@ -90,7 +92,7 @@ const Container = styled.div`
 `
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return (
     <Container>
       <NextSeo
@@ -121,3 +123,9 @@ export default function MyApp({ Component, pageProps }) {
     </Container>
   )
 }
+
+MyApp.getInitialProps = async appContext => ({
+  ...(await App.getInitialProps(appContext)),
+})
+
+export default appWithTranslation(MyApp)

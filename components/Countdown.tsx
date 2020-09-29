@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from '@emotion/core'
-import { count } from 'console'
+import { TFunction } from 'next-i18next'
 import { useCallback, useEffect, useState } from 'react'
 import { colors } from '../constants/colors'
+import { withTranslation } from '../i18n'
 
 const enterAnimation = keyframes`
   from {
@@ -13,9 +14,7 @@ const enterAnimation = keyframes`
   }
 `
 
-export const Countdown: React.FunctionComponent<{ time: Date }> = ({
-  time,
-}) => {
+const Countdown = ({ time, t }: { time: Date; readonly t: TFunction }) => {
   const secondsInADay = 60 * 60 * 1000 * 24
   const updateCountdown = useCallback(() => {
     const countTo = time.getTime()
@@ -71,8 +70,7 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
             font-size: calc(0.8rem + (16 * 1) * (100vw - 320px) / (2400 - 320));
           `}
         >
-          Ci vedremo{' '}
-          {countdown ? <span>tra circa</span> : <span>più o meno il</span>}:
+          {t('seeyou')} {countdown ? t('inabout') : t('moreorless')}:
         </h3>
         <h2
           css={css`
@@ -80,9 +78,20 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
           `}
         >
           {countdown || `${time.getDay()} - ${time.getMonth()}`}{' '}
-          {countdown && <small>giorni</small>}
+          {countdown && countdown === 1 ? t('day') : t('days')}
         </h2>
       </div>
     </div>
   )
 }
+
+Countdown.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+const CountdownWithTranslation: any = withTranslation('common')(
+  Countdown as any
+)
+
+const a = () => <CountdownWithTranslation time={new Date()} />
+export { CountdownWithTranslation as Countdown }

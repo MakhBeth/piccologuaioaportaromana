@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
+import { TFunction } from 'next-i18next'
 import Head from 'next/head'
 import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
+import { withTranslation } from '../i18n'
 import { Cockade } from '../svg/cockade'
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="container">
       <Head>
@@ -36,3 +38,9 @@ export default function Home() {
     </div>
   )
 }
+
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common', 'footer'],
+})
+
+export default withTranslation('common')(Home)

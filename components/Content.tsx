@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { css, jsx, keyframes } from '@emotion/core'
-import { FunctionComponent } from 'react'
 import { Button } from './Button'
 import { Notification } from './Notification'
+import { TFunction } from 'next-i18next'
+import { withTranslation } from '../i18n'
 
 const enterAnimation = keyframes`
   from {
@@ -15,29 +16,39 @@ const enterAnimation = keyframes`
   }
 `
 
-export const Content: FunctionComponent = () => (
-  <section
-    css={css`
-      animation: ${enterAnimation} 1s 5s;
-      animation-fill-mode: backwards;
-    `}
-  >
-    <h3
+const Content = ({ t }: { readonly t: TFunction }) => {
+  return (
+    <section
       css={css`
-        font-size: calc(0.8rem + (8 * 1) * (100vw - 320px) / (1800 - 320));
-        margin-bottom: 1em;
+        animation: ${enterAnimation} 1s 5s;
+        animation-fill-mode: backwards;
       `}
     >
-      Nel frattempo:
-    </h3>
-    <Button
-      as="a"
-      href="https://www.amazon.it/baby-reg/davide-dipumpo-febbraio-2021-milano/1SYN7DGSB0SVY"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Lista nascita
-    </Button>
-    <Notification />
-  </section>
-)
+      <h3
+        css={css`
+          font-size: calc(0.8rem + (8 * 1) * (100vw - 320px) / (1800 - 320));
+          margin-bottom: 1em;
+        `}
+      >
+        {t('meanwhile')}
+      </h3>
+      <Button
+        as="a"
+        href="https://www.amazon.it/baby-reg/davide-dipumpo-febbraio-2021-milano/1SYN7DGSB0SVY"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t('babyregistry')}
+      </Button>
+      <Notification />
+    </section>
+  )
+}
+
+Content.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+const ContentWithTranslation = withTranslation('common')(Content)
+
+export { ContentWithTranslation as Content }

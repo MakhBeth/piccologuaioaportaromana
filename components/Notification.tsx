@@ -1,8 +1,10 @@
 import OneSignal, { useOneSignalSetup } from 'react-onesignal'
 import { useEffect, useState } from 'react'
 import { Button } from './Button'
+import { TFunction } from 'next-i18next'
+import { withTranslation } from '../i18n'
 
-export const Notification = () => {
+const Notification = ({ t }: { readonly t: TFunction }) => {
   const [hasPush, setPush] = useState(false)
   const [isPushEnabled, setPushEnabled] = useState(false)
 
@@ -26,11 +28,18 @@ export const Notification = () => {
     init()
   })
 
-  console.log(hasPush)
-  // if (!hasPush) return null
+  if (!hasPush) return null
   return (
     <Button onClick={OneSignal.registerForPushNotifications}>
-      {isPushEnabled ? 'Notifiche attivate' : 'Ricevi notifiche!'}
+      {isPushEnabled ? t('notificationsactived') : t('notifications')}
     </Button>
   )
 }
+
+Notification.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+const NotificaitonWithTranslation = withTranslation('common')(Notification)
+
+export { NotificaitonWithTranslation as Notification }
