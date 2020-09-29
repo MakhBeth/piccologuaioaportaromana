@@ -6,51 +6,60 @@ import { NextSeo } from 'next-seo'
 import App from 'next/app'
 import { appWithTranslation } from '../i18n'
 
-// const intro = keyframes`
-//   from, 50% {
-//     min-height: 0vh;
-//     height: 0vh;
-//     overflow: hidden;
-//     opacity: 0;
-//   }
+const beat = keyframes`
+  0%, 20%, 40%, 60%, 80% {
+    transform: scale(1) rotate(-45deg);
+    opacity: 1;
+  }
+  10%, 30%, 50%, 70% {
+    transform: scale(0.6) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+  }
+`
 
-//   to {
-//     min-height: 100vh;
-//     height: 100vh;
-//     overflow: visible;
-//   }
-
-//   70% {
-//     min-height: 100vh;
-//     height: 100vh;
-//     opacity: 1;
-//   }
-
-//   75%,78% {
-//     min-height: 80vh;
-//     height: 80vh;
-//   }
-
-//   80% {
-//     min-height: 100vh;
-//     height: 100vh;
-//   }
-
-//   85%,86% {
-//     min-height: 90vh;
-//     height: 90vh;
-//   }
-
-//   90% {
-//     min-height: 100vh;
-//     height: 100vh;
-//   }
-
-//   95%,96% {
-//     min-height: 95vh;
-//     height: 95vh;
-//   }
-// `
+const Heart = styled.div`
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: ${colors.main.lowest};
+  height: 50px;
+  width: 50px;
+  transform: rotate(-45deg);
+  animation-name: ${beat};
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: scale(0);
+  will-change: transform, opacity;
+  &:after {
+    background-color: ${colors.main.lowest};
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 25px;
+  }
+  &:before {
+    background-color: ${colors.main.lowest};
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0px;
+  }
+`
 
 const background = keyframes`
   0%, 90%{
@@ -119,6 +128,7 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       />
+      <Heart />
       <Component {...pageProps} />
     </Container>
   )
