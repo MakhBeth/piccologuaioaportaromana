@@ -26,6 +26,7 @@ export const Notification = () => {
     init()
   })
 
+  console.log(hasPush)
   // if (!hasPush) return null
   return (
     <Button onClick={OneSignal.registerForPushNotifications}>
