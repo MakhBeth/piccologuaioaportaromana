@@ -1,45 +1,73 @@
 import OneSignal, { useOneSignalSetup } from 'react-onesignal'
-import { useEffect, useState } from 'react'
+import { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react'
 import { Button } from './Button'
 import { TFunction } from 'next-i18next'
 import { withTranslation } from '../i18n'
+import { useIsClient } from '../hooks/useIsClient'
+import { useInterval } from '../hooks/useInterval'
+import { useIsMounted } from '../hooks/useIsMounted'
 
-const Notification = ({ t }: { readonly t: TFunction }) => {
-  const [hasPush, setPush] = useState(false)
-  const [isPushEnabled, setPushEnabled] = useState(false)
+const OneSignalComponent: React.FunctionComponent<{
+  setPermission: Dispatch<SetStateAction<NotificationPermission>>
+}> = ({ setPermission }) => {
+  const isClient = useIsClient()
+  const isMounted = useIsMounted()
+  useInterval(() => {
+    if (isMounted && isClient && Notification) {
+      setPermission(Notification.permission)
+    }
+  }, 1000)
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.document) {
+    if (isClient) {
       OneSignal.initialize(process.env.onsignalKey, {
         subdomainName: 'piccologuaioap',
         safari_web_id: process.env.onesignalSafariKey,
         allowLocalhostAsSecureOrigin: true,
       })
     }
-  }, [])
+  }, [isClient])
 
   useOneSignalSetup(() => {
-    const init = async () => {
-      const hasPush = await OneSignal.isPushNotificationsSupported()
-      setPush(hasPush)
-      const isPushEnabled = await OneSignal.isPushNotificationsEnabled()
-      setPushEnabled(isPushEnabled)
-    }
-    init()
+    OneSignal.registerForPushNotifications()
   })
+  return null
+}
+
+const Notifications = ({ t }: { readonly t: TFunction }) => {
+  const isClient = useIsClient()
+  const [hasPush, setPush] = useState(false)
+  const [permission, setPermission] = useState<NotificationPermission>(
+    'default'
+  )
+  const [notifications, askForNotifications] = useState(false)
+
+  useEffect(() => {
+    if (isClient && Notification) {
+      setPush(true)
+      setPermission(Notification.permission)
+    }
+  }, [isClient])
 
   if (!hasPush) return null
   return (
-    <Button onClick={OneSignal.registerForPushNotifications}>
-      {isPushEnabled ? t('notificationsactived') : t('notifications')}
-    </Button>
+    <Fragment>
+      {notifications && permission === 'default' && (
+        <OneSignalComponent setPermission={setPermission} />
+      )}
+      <Button onClick={() => askForNotifications(true)}>
+        {permission === 'granted'
+          ? t('notificationsactived')
+          : t('notifications')}
+      </Button>
+    </Fragment>
   )
 }
 
-Notification.getInitialProps = async () => ({
+Notifications.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 })
 
-const NotificaitonWithTranslation = withTranslation('common')(Notification)
+const NotificaitonWithTranslation = withTranslation('common')(Notifications)
 
 export { NotificaitonWithTranslation as Notification }

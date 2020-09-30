@@ -37,4 +37,8 @@ export const Button: any = styled.button`
     height: calc(100% + 10px + 0.5rem);
     width: calc(100% + 10px + 0.5rem);
   }
+
+  &[disabled='true'] {
+    pointer-events: none;
+  }
 `
