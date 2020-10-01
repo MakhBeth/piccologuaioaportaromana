@@ -43,7 +43,7 @@ const Notifications = ({ t }: { readonly t: TFunction }) => {
   const [notifications, askForNotifications] = useState(false)
 
   useEffect(() => {
-    if (isClient && Notification) {
+    if (isClient && window && 'Notification' in window) {
       setPush(true)
       setPermission(Notification.permission)
     }
