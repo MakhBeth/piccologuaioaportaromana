@@ -99,4 +99,4 @@ export const male: Colors = {
 
 export const colors = ((theme): Colors & { shadow: string } => {
   return { shadow: opacify(-0.25, theme.main.low), ...theme }
-})(male)
+})(female)
