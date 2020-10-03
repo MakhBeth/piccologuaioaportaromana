@@ -1,11 +1,24 @@
+/** @jsx jsx */
 import OneSignal, { useOneSignalSetup } from 'react-onesignal'
-import { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react'
+import {
+  Fragment,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react'
 import { Button } from './Button'
 import { TFunction } from 'next-i18next'
-import { withTranslation } from '../i18n'
+import { withTranslation, useTranslation } from '../i18n'
 import { useIsClient } from '../hooks/useIsClient'
 import { useInterval } from '../hooks/useInterval'
 import { useIsMounted } from '../hooks/useIsMounted'
+import Modal from 'react-modal'
+import { opacify } from 'polished'
+import { jsx, ClassNames } from '@emotion/core'
+import { colors } from '../constants/colors'
+Modal.setAppElement('#__next')
 
 const OneSignalComponent: React.FunctionComponent<{
   setPermission: Dispatch<SetStateAction<NotificationPermission>>
@@ -34,6 +47,64 @@ const OneSignalComponent: React.FunctionComponent<{
   return null
 }
 
+const Mail: React.FunctionComponent = () => {
+  const [modal, setModal] = useState(false)
+  const openModal = () => setModal(true)
+  const closeModal = () => setModal(false)
+  const { t } = useTranslation()
+  const submit = useCallback(e => {
+    console.log(e)
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    })
+      .then(() => console.log('Success!'))
+      .catch(error => console.error(error))
+  }, [])
+
+  return (
+    <Fragment>
+      <Button onClick={openModal}>{t('notifications')}</Button>
+      <ClassNames>
+        {({ css }) => (
+          <Modal
+            overlayClassName={css`
+              position: fixed;
+              min-width: 100vw;
+              min-height: 100vh;
+              display: flex;
+              background-color: ${opacify(-0.25, colors.neutral.low)};
+              top: 0;
+              left: 0;
+              justify-content: center;
+              align-items: center;
+            `}
+            css={css`
+              background: ${colors.neutral.highest};
+              margin: 1rem 1rem 2rem;
+              max-width: calc(50rem);
+              padding: 1rem 2rem;
+              border-radius: 1rem;
+              width: 100%;
+              outline: none;
+            `}
+            isOpen={modal}
+            onRequestClose={closeModal}
+          >
+            <h1>Il tuo browser non supporta le notifiche!</h1>
+            <h3>Oppure ha un ad-block di quelli potenti!</h3>
+            <br />
+            <form name="notification" data-netlify="true" onSubmit={submit}>
+              <label htmlFor="email">Prova a lasciarci un'email</label>
+              <input type="emal" name="email" id="email" />
+            </form>
+          </Modal>
+        )}
+      </ClassNames>
+    </Fragment>
+  )
+}
+
 const Notifications = ({ t }: { readonly t: TFunction }) => {
   const isClient = useIsClient()
   const [hasPush, setPush] = useState(false)
@@ -44,24 +115,33 @@ const Notifications = ({ t }: { readonly t: TFunction }) => {
 
   useEffect(() => {
     if (isClient && window && 'Notification' in window) {
-      setPush(true)
-      setPermission(Notification.permission)
+      fetch('https://onesignal.com/api/v1/notifications')
+        .then(() => {
+          setPush(true)
+          setPermission(Notification.permission)
+        })
+        .catch(e => {
+          console.log(e)
+          console.warn(e, 'onesignal blocked')
+        })
     }
   }, [isClient])
 
-  if (!hasPush) return null
-  return (
-    <Fragment>
-      {notifications && permission === 'default' && (
-        <OneSignalComponent setPermission={setPermission} />
-      )}
-      <Button onClick={() => askForNotifications(true)}>
-        {permission === 'granted'
-          ? t('notificationsactived')
-          : t('notifications')}
-      </Button>
-    </Fragment>
-  )
+  if (hasPush)
+    return (
+      <Fragment>
+        {notifications && permission === 'default' && (
+          <OneSignalComponent setPermission={setPermission} />
+        )}
+        <Button onClick={() => askForNotifications(true)}>
+          {permission === 'granted'
+            ? t('notificationsactived')
+            : t('notifications')}
+        </Button>
+      </Fragment>
+    )
+
+  return <Mail />
 }
 
 Notifications.getInitialProps = async () => ({

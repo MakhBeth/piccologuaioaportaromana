@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@types/react-modal": "^3.10.6",
     "modern-css-reset": "^1.1.1",
     "next": "9.3.5",
     "next-i18next": "^6.0.2",
@@ -18,6 +19,7 @@
     "polished": "^3.6.7",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-modal": "^3.11.2",
     "react-onesignal": "^1.7.0"
   },
   "devDependencies": {

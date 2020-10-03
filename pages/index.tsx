@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/core'
 import Head from 'next/head'
 import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
-import { useTranslation, withTranslation } from '../i18n'
+import { withTranslation } from '../i18n'
 import { Cockade } from '../svg/cockade'
 
 const Home = () => {
