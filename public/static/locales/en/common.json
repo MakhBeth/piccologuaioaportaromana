@@ -7,5 +7,12 @@
   "notifications": "Notifications",
   "notificationsactived": "Notifications actived",
   "babyregistry": "Baby registry",
-  "meanwhile": "Meanwhile"
+  "meanwhile": "Meanwhile",
+  "loading": "Loading",
+  "awesome": "Awesome",
+  "close": "Close",
+  "notsupported": "Your browser doesn't support push notifications",
+  "notsupportedor": "Or you have a powerful ad-blocker",
+  "leaveusemail": "Leave us your email",
+  "submit": "Submit"
 }

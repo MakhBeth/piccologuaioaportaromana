@@ -136,18 +136,18 @@ const Mail: React.FunctionComponent = () => {
                   t('loading')
                 ) : (
                   <div>
-                    <h1>Perfetto!</h1>
-                    <Button onClick={closeModal}>Chiudi</Button>
+                    <h1>{t('awesome')}!</h1>
+                    <Button onClick={closeModal}>{t('close')}</Button>
                   </div>
                 )}
               </div>
             )}
             <Fragment>
-              <h1>Il tuo browser non supporta le notifiche!</h1>
-              <h3>Oppure ha un ad-block di quelli potenti!</h3>
+              <h1>{t('notsupported')}!</h1>
+              <h3>{t('notsupportedor')}!</h3>
               <br />
               <form name="notifications" data-netlify="true" onSubmit={submit}>
-                <label htmlFor="email">Prova a lasciarci un'email</label>
+                <label htmlFor="email">{t('leavusemail')}</label>
                 <br />
                 <input type="hidden" name="form-name" value="notifications" />
                 <input
@@ -167,8 +167,8 @@ const Mail: React.FunctionComponent = () => {
                 />
                 <br />
                 <br />
-                <Button type="submit">Invia</Button>
-                <Button onClick={closeModal}>Chiudi</Button>
+                <Button type="submit">{t('submit')}</Button>
+                <Button onClick={closeModal}>{t('close')}</Button>
               </form>
             </Fragment>
           </Modal>

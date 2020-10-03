@@ -7,5 +7,12 @@
   "notifications": "Notifiche",
   "notificationsactived": "Notifiche attive",
   "babyregistry": "Lista nascita",
-  "meanwhile": "Nel frattempo"
+  "meanwhile": "Nel frattempo",
+  "loading": "Caricamento",
+  "awesome": "Fantastico",
+  "close": "Chiudi",
+  "notsupported": "Il tuo browser non supporta le notifiche",
+  "notsupportedor": "Oppure ha un ad-block di quelli potenti",
+  "leaveusemail": "Prova a lasciarci un'email",
+  "submit": "Invia"
 }
