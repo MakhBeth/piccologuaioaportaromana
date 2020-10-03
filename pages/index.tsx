@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsx jsx m */
 import { css, jsx } from '@emotion/core'
 import Head from 'next/head'
 import { Content } from '../components/Content'
@@ -18,6 +18,14 @@ const Home = () => {
         />
       </Head>
 
+      <form
+        name="notifications"
+        data-netlify
+        netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="email" name="email" />
+      </form>
       <main>
         <div
           css={css`

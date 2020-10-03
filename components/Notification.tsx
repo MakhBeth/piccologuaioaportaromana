@@ -54,12 +54,6 @@ const Mail: React.FunctionComponent = () => {
   const { t } = useTranslation()
   const submit = useCallback(e => {
     console.log(e)
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    })
-      .then(() => console.log('Success!'))
-      .catch(error => console.error(error))
   }, [])
 
   return (
@@ -94,9 +88,10 @@ const Mail: React.FunctionComponent = () => {
             <h1>Il tuo browser non supporta le notifiche!</h1>
             <h3>Oppure ha un ad-block di quelli potenti!</h3>
             <br />
-            <form name="notification" data-netlify="true" onSubmit={submit}>
+            <form name="notifications" data-netlify="true" onSubmit={submit}>
               <label htmlFor="email">Prova a lasciarci un'email</label>
-              <input type="emal" name="email" id="email" />
+              <input type="hidden" name="form-name" value="notifications" />
+              <input type="email" name="email" id="email" />
             </form>
           </Modal>
         )}
