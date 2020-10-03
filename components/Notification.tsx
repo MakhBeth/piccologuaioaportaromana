@@ -18,6 +18,7 @@ import Modal from 'react-modal'
 import { opacify } from 'polished'
 import { jsx, ClassNames } from '@emotion/core'
 import { colors } from '../constants/colors'
+import serialize from 'form-serialize'
 Modal.setAppElement('#__next')
 
 const OneSignalComponent: React.FunctionComponent<{
@@ -53,7 +54,14 @@ const Mail: React.FunctionComponent = () => {
   const closeModal = () => setModal(false)
   const { t } = useTranslation()
   const submit = useCallback(e => {
-    console.log(e)
+    e.preventDefault()
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: serialize(e.target),
+    })
+      .then(() => console.log('Success!'))
+      .catch(error => console.error(error))
   }, [])
 
   return (
