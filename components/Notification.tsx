@@ -147,7 +147,7 @@ const Mail: React.FunctionComponent = () => {
               <h3>{t('notsupportedor')}!</h3>
               <br />
               <form name="notifications" data-netlify="true" onSubmit={submit}>
-                <label htmlFor="email">{t('leavusemail')}</label>
+                <label htmlFor="email">{t('leaveusemail')}</label>
                 <br />
                 <input type="hidden" name="form-name" value="notifications" />
                 <input
