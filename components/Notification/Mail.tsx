@@ -53,7 +53,7 @@ export const Mail: React.FunctionComponent = () => {
           <Modal
             overlayClassName={css`
               position: fixed;
-              min-width: 100vw;
+              width: 100vw;
               min-height: 100vh;
               display: flex;
               background-color: ${opacify(-0.25, colors.neutral.low)};
@@ -61,12 +61,13 @@ export const Mail: React.FunctionComponent = () => {
               left: 0;
               justify-content: center;
               align-items: center;
+              padding: 1rem;
             `}
             css={css`
               animation: 300ms ${animation};
               font-size: 1.2rem;
               background: ${colors.main.neutral};
-              margin: 1rem 1rem 2rem;
+              margin-bottom: 2rem;
               max-width: calc(50rem);
               padding: 1rem 2rem;
               border-radius: 1rem;

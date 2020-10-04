@@ -13,7 +13,14 @@ import { Cockade } from '../svg/cockade'
 
 const Home = () => {
   return (
-    <div className="container">
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+      `}
+    >
       <Head>
         <title>Hello World... Almost</title>
         <meta name="apple-mobile-web-app-title" content="Gaia" />
@@ -54,7 +61,14 @@ const Home = () => {
         <input type="email" name="email" />
       </form>
 
-      <main>
+      <main
+        css={css`
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          justify-content: space-evenly;
+        `}
+      >
         <div
           css={css`
             margin-bottom: 4vh;
