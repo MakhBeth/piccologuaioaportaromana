@@ -20,6 +20,7 @@
     "polished": "^3.6.7",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-feather": "^2.0.8",
     "react-modal": "^3.11.2",
     "react-onesignal": "^1.7.0"
   },

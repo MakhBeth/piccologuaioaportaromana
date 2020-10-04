@@ -1,8 +1,10 @@
 /** @jsx jsx m */
 import { css, jsx } from '@emotion/core'
 import Head from 'next/head'
+import { GitHub } from 'react-feather'
 import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
+import { colors } from '../constants/colors'
 import { withTranslation } from '../i18n'
 import { Cockade } from '../svg/cockade'
 
@@ -68,6 +70,34 @@ const Home = () => {
         </div>
         <Content />
       </main>
+      <div
+        css={css`
+          text-align: right;
+        `}
+      >
+        <a
+          href="https://github.com/MakhBeth/piccologuaioaportaromana"
+          target="_blank"
+          rel="noopener"
+          css={css`
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            display: inline-block;
+            background-color: ${colors.neutral.highest};
+            position: relative;
+            padding: 3rem 0.5rem 0.5rem 3rem;
+            color: ${colors.main.lowest};
+            margin-right: -2px;
+            will-change: background-color;
+            transition: background-color 300ms;
+
+            &:hover {
+              background-color: ${colors.main.neutral};
+            }
+          `}
+        >
+          <GitHub />
+        </a>
+      </div>
     </div>
   )
 }
