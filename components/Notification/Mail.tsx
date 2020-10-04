@@ -99,6 +99,7 @@ export const Mail: React.FunctionComponent = () => {
                 ) : (
                   <div>
                     <h1>{t('awesome')}!</h1>
+                    <p>{t('wewillupdateyou')}</p>
                     <Button onClick={closeModal}>{t('close')}</Button>
                   </div>
                 )}
