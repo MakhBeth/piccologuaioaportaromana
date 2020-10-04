@@ -2,10 +2,13 @@
 import { css, jsx } from '@emotion/core'
 import Head from 'next/head'
 import { GitHub } from 'react-feather'
+
 import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
+
 import { colors } from '../constants/colors'
 import { withTranslation } from '../i18n'
+
 import { Cockade } from '../svg/cockade'
 
 const Home = () => {
@@ -50,6 +53,7 @@ const Home = () => {
       >
         <input type="email" name="email" />
       </form>
+
       <main>
         <div
           css={css`
