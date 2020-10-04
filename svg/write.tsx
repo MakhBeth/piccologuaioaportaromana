@@ -45,8 +45,8 @@ const generateAppearCss = (delay: number, moreCss?: string) => css`
   animation: ${appear} 0.5s;
   animation-delay: ${delay}ms;
   animation-fill-mode: backwards;
-  transform-origin: center center;
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center center;
   will-change: transform, opacity;
   ${moreCss}
 `

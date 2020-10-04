@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import App from 'next/app'
 import { appWithTranslation } from '../i18n'
 import { Container } from '../components/Container'
-import { Heart } from 'react-feather'
+import { Heart } from '../components/Heart'
 
 // This default export is required in a new `pages/_app.js` file.
 function MyApp({ Component, pageProps }) {

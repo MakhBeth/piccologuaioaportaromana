@@ -19,41 +19,42 @@ const beat = keyframes`
 `
 
 export const Heart = styled.div`
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: ${colors.main.lowest};
-  height: 50px;
-  width: 50px;
-  transform: rotate(-45deg);
-  animation-name: ${beat};
   animation-duration: 2s;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: ${beat};
+  background-color: ${colors.main.lowest};
+  bottom: 0;
+  height: 50px;
+  left: 0;
+  margin: auto;
   opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(-45deg);
   transform: scale(0);
+  width: 50px;
   will-change: transform, opacity;
+
   &:after {
     background-color: ${colors.main.lowest};
-    content: '';
     border-radius: 50%;
-    position: absolute;
-    width: 50px;
+    content: '';
     height: 50px;
-    top: 0px;
     left: 25px;
+    position: absolute;
+    top: 0px;
+    width: 50px;
   }
   &:before {
     background-color: ${colors.main.lowest};
-    content: '';
     border-radius: 50%;
-    position: absolute;
-    width: 50px;
+    content: '';
     height: 50px;
-    top: -25px;
     left: 0px;
+    position: absolute;
+    top: -25px;
+    width: 50px;
   }
 `

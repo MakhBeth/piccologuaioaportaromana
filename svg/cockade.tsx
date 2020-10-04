@@ -115,13 +115,13 @@ export const Cockade: React.FunctionComponent = () => (
   <div
     css={css`
       animation: ${opacity} 2s;
-      will-change: transform;
       height: 90vw;
       margin: 0 auto;
       max-height: 60vh;
       max-width: 60vh;
       position: relative;
       width: 90vw;
+      will-change: transform;
     `}
   >
     <Coccarda shadow />
@@ -129,14 +129,14 @@ export const Cockade: React.FunctionComponent = () => (
     <Spawn
       addcss={css`
         animation: ${opacity} 3s;
-        will-change: opacity;
-        left: 51%;
-        transform: translate(-50%, -50%);
-        font-size: 3rem;
-        width: 75%;
         bottom: 0%;
+        font-size: 3rem;
+        left: 51%;
         position: absolute;
         top: 62%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        will-change: opacity;
       `}
     />
     <Write
@@ -154,18 +154,17 @@ export const Cockade: React.FunctionComponent = () => (
       y="0px"
       viewBox="0 0 1000 1000"
       css={css`
-        position: absolute;
-        z-index: 1000;
         animation: ${rotation} 100s infinite linear;
-        will-change: transform;
-        position: absolute;
-        width: 85%;
         height: 85%;
-        top: 0;
         left: 0;
-        z-index: 1;
-        top: 7.5%;
         left: 7.5%;
+        position: absolute;
+        position: absolute;
+        top: 0;
+        top: 7.5%;
+        width: 85%;
+        will-change: transform;
+        z-index: 1;
       `}
     >
       <circle

@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { css, jsx, keyframes } from '@emotion/core'
 import { useCallback, useEffect, useState } from 'react'
+import { css, jsx, keyframes } from '@emotion/core'
 import { colors } from '../constants/colors'
 import { useTranslation } from '../i18n'
 
@@ -38,9 +38,9 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
         animation: ${enterAnimation} 1s 4.5s;
         animation-fill-mode: forwards;
         font-size: calc(2rem + (16 * 2) * (100vh - 320px) / (2400 - 320));
-        width: 0%;
         overflow: hidden;
         padding-bottom: 1em;
+        width: 0%;
         will-change: width;
       `}
     >
@@ -49,19 +49,19 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
           background-color: ${colors.neutral.highest};
           box-shadow: 0 2vw 0 ${colors.shadow};
           padding: 0.5em 0 1em;
-          width: 95vw;
           position: relative;
+          width: 95vw;
           will-change: width;
 
           &::before,
           &::after {
-            width: 100%;
             border-top: 2px dashed ${colors.main.neutral};
             content: '';
             display: block;
-            position: absolute;
             left: 0%;
+            position: absolute;
             top: 0.25em;
+            width: 100%;
           }
 
           &::after {
