@@ -16,7 +16,7 @@ const enterAnimation = keyframes`
 export const Countdown: React.FunctionComponent<{ time: Date }> = ({
   time,
 }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const secondsInADay = 60 * 60 * 1000 * 24
   const updateCountdown = useCallback(() => {
     const countTo = time.getTime()
@@ -79,10 +79,26 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
         <h2
           css={css`
             line-height: 0.8;
+            position: relative;
+            display: inline-block;
           `}
         >
           {countdown || `${time.getDay()} - ${time.getMonth()}`}{' '}
           {countdown && countdown === 1 ? t('day') : t('days')}
+          <small
+            css={css`
+              font-size: 0.27em;
+              position: absolute;
+              top: 100%;
+              width: auto;
+              ${i18n.language === 'it' ? 'right' : 'left'}: 0;
+              text-align: ${i18n.language === 'it' ? 'right' : 'left'};
+            `}
+          >
+            {t('orthe')}
+            <br />
+            {time.toLocaleDateString()}
+          </small>
         </h2>
       </div>
     </div>
