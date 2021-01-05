@@ -16,7 +16,7 @@ const enterAnimation = keyframes`
   }
 `
 
-export const Content: FunctionComponent = () => {
+export const Content: FunctionComponent<{ born?: boolean }> = ({ born }) => {
   const { t } = useTranslation()
   return (
     <section
@@ -26,14 +26,6 @@ export const Content: FunctionComponent = () => {
         will-change: transform, opacity;
       `}
     >
-      <h3
-        css={css`
-          font-size: calc(0.8rem + (8 * 1) * (100vw - 320px) / (1800 - 320));
-          margin-bottom: 1em;
-        `}
-      >
-        {t('meanwhile')}
-      </h3>
       <Button
         as="a"
         href="https://www.amazon.it/baby-reg/davide-dipumpo-febbraio-2021-milano/1SYN7DGSB0SVY"
@@ -42,7 +34,7 @@ export const Content: FunctionComponent = () => {
       >
         {t('babyregistry')}
       </Button>
-      <Notification />
+      {!born && <Notification />}
     </section>
   )
 }

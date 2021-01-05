@@ -5,11 +5,15 @@ import { GitHub } from 'react-feather'
 
 import { Content } from '../components/Content'
 import { Countdown } from '../components/Countdown'
+import { BirthDate } from '../components/BirthDate'
 
-import { colors } from '../constants/colors'
 import { withTranslation } from '../i18n'
+import { colors } from '../constants/colors'
+import { bornValues } from '../constants/bornValues'
 
 import { Cockade } from '../svg/cockade'
+import { Weigth } from '../svg/weigth'
+import { Length } from '../svg/length'
 
 const Home = () => {
   return (
@@ -84,9 +88,13 @@ const Home = () => {
             z-index: 1;
           `}
         >
-          <Countdown time={new Date('2021-02-15')} />
+          {bornValues.date ? (
+            <BirthDate time={new Date('2021-02-15')} />
+          ) : (
+            <Countdown time={new Date('2021-02-15')} />
+          )}
         </div>
-        <Content />
+        <Content born={!!bornValues.date} />
       </main>
       <div
         css={css`
@@ -116,6 +124,8 @@ const Home = () => {
           <GitHub />
         </a>
       </div>
+      {/* <Weigth />
+      <Length /> */}
     </div>
   )
 }
