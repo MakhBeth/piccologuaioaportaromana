@@ -4,7 +4,7 @@
   "seeyou": "Ci vediamo",
   "inabout": "tra circa",
   "orthe": "ovvero il",
-  "moreorless": "maybe the",
+  "moreorless": "più o meno il",
   "notifications": "Notifiche",
   "notificationsactived": "Notifiche attive",
   "babyregistry": "Lista nascita",
@@ -36,5 +36,6 @@
   "myWeigth": "Il mio peso in KG",
   "myLength": "La mia lunghezza in CM",
   "yourId": "Qualcosa con cui ti possa riconoscere? Il nome? Il soprannome?",
-  "news": "Novità"
+  "news": "Novità",
+  "dontrushme": "Non mettermi fretta"
 }

@@ -45,6 +45,8 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
     setInterval(() => setCountdown(updateCountdown()), secondsInADay * 1000)
   }, [])
 
+  const positive = countdown && countdown > 0
+
   return (
     <div
       css={css`
@@ -81,37 +83,50 @@ export const Countdown: React.FunctionComponent<{ time: Date }> = ({
           }
         `}
       >
-        <h3
-          css={css`
-            font-size: calc(0.8rem + (16 * 1) * (100vw - 320px) / (2400 - 320));
-          `}
-        >
-          {t('seeyou')} {countdown ? t('inabout') : t('moreorless')}:
-        </h3>
-        <h2
-          css={css`
-            line-height: 0.8;
-            position: relative;
-            display: inline-block;
-          `}
-        >
-          {countdown || `${time.getDay()} - ${time.getMonth()}`}{' '}
-          {countdown && countdown === 1 ? t('day') : t('days')}
-          <small
+        {positive ? (
+          <>
+            <h3
+              css={css`
+                font-size: calc(
+                  0.8rem + (16 * 1) * (100vw - 320px) / (2400 - 320)
+                );
+              `}
+            >
+              {t('seeyou')} {positive ? t('inabout') : t('moreorless')}:
+            </h3>
+            <h2
+              css={css`
+                line-height: 0.8;
+                position: relative;
+                display: inline-block;
+              `}
+            >
+              {countdown} {countdown === 1 ? t('day') : t('days')}
+              <small
+                css={css`
+                  font-size: 0.27em;
+                  position: absolute;
+                  top: 100%;
+                  width: auto;
+                  ${i18n.language === 'it' ? 'right' : 'left'}: 0;
+                  text-align: ${i18n.language === 'it' ? 'right' : 'left'};
+                `}
+              >
+                {t('orthe')}
+                <br />
+                {time.toLocaleDateString()}
+              </small>
+            </h2>
+          </>
+        ) : (
+          <h2
             css={css`
-              font-size: 0.27em;
-              position: absolute;
-              top: 100%;
-              width: auto;
-              ${i18n.language === 'it' ? 'right' : 'left'}: 0;
-              text-align: ${i18n.language === 'it' ? 'right' : 'left'};
+              margin-bottom: -0.5em;
             `}
           >
-            {t('orthe')}
-            <br />
-            {time.toLocaleDateString()}
-          </small>
-        </h2>
+            {t('dontrushme')}!
+          </h2>
+        )}
       </div>
 
       <h3

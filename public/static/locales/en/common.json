@@ -4,7 +4,7 @@
   "seeyou": "See you",
   "inabout": "in about",
   "orthe": "or the",
-  "moreorless": "più o meno il",
+  "moreorless": "maybe the",
   "notifications": "Notifications",
   "notificationsactived": "Notifications actived",
   "babyregistry": "Baby registry",
@@ -36,5 +36,6 @@
   "myWeigth": "my weigth in KG",
   "myLength": "my length in CM",
   "yourId": "Something like your name, surname, nickname?",
-  "news": "News"
+  "news": "News",
+  "dontrushme": "Don't rush me!"
 }

@@ -91,13 +91,13 @@ const Home = () => {
             z-index: 1;
           `}
         >
-          {bornValues.date ? (
-            <BirthDate time={new Date('2021-02-15')} />
+          {bornValues.born ? (
+            <BirthDate time={bornValues.date} />
           ) : (
-            <Countdown time={new Date('2021-02-15')} />
+            <Countdown time={bornValues.date} />
           )}
         </div>
-        <Content born={!!bornValues.date} />
+        <Content born={bornValues.born} />
       </main>
       <div
         css={css`
