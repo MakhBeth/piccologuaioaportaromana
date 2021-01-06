@@ -39,8 +39,8 @@ export const Content: FunctionComponent<{ born?: boolean }> = ({ born }) => {
       >
         {t('babyregistry')}
       </Button>
-      {!born && <Notification />}
       {!born && <Toto />}
+      {!born && <Notification />}
     </section>
   )
 }

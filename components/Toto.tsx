@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { jsx, css, keyframes } from '@emotion/core'
 import { Fragment, useState } from 'react'
 import { Button } from './Button'
 import { useTranslation } from '../i18n'
@@ -23,8 +23,18 @@ const input = css`
     outline: none;
   }
 `
+
+const anim = keyframes`
+  0% {
+      background-position: left top, right bottom, left bottom, right   top;
+    }
+  100% {
+    background-position: left 15px top, right 15px bottom , left bottom 15px , right   top 15px;
+  }
+`
+
 export const Toto: React.FunctionComponent = () => {
-  const [modal, setModal] = useState(true)
+  const [modal, setModal] = useState(false)
   const openModal = () => setModal(true)
   const closeModal = () => setModal(false)
   const { t } = useTranslation()
@@ -32,7 +42,51 @@ export const Toto: React.FunctionComponent = () => {
 
   return (
     <Fragment>
-      <Button onClick={openModal}>Toto Gaia</Button>
+      <span
+        css={css`
+          position: relative;
+          display: inline-block;
+          margin: 1rem 2rem;
+          z-index: 0;
+
+          &::after {
+            content: '';
+            display: block;
+            animation: ${anim} 1s infinite linear;
+            background-image: linear-gradient(
+                90deg,
+                ${colors.main.low} 50%,
+                transparent 50%
+              ),
+              linear-gradient(90deg, ${colors.main.low} 50%, transparent 50%),
+              linear-gradient(0deg, ${colors.main.low} 50%, transparent 50%),
+              linear-gradient(0deg, ${colors.main.low} 50%, transparent 50%);
+            background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+            background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+            background-position: left top, right bottom, left bottom, right top;
+            position: absolute;
+            top: -1.5em;
+            width: calc(100% + 2rem);
+            height: calc(100% + 1.5rem);
+            left: -1rem;
+            z-index: -2;
+          }
+        `}
+      >
+        <small
+          css={css`
+            position: absolute;
+            right: -0.5rem;
+            top: -2rem;
+            color: ${colors.neutral.low};
+            background-color: ${colors.main.low};
+            padding: 0 0.5em;
+          `}
+        >
+          {t('news')}
+        </small>
+        <Button onClick={openModal}>Toto Gaia</Button>
+      </span>
       <Modal opened={modal} closeFn={closeModal}>
         {loading && (
           <div
