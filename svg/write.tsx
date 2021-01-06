@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { FunctionComponent } from 'react'
-import { css, jsx, keyframes, SerializedStyles } from '@emotion/core'
+import { jsx, SerializedStyles } from '@emotion/core'
+import { css, keyframes } from '@emotion/react'
 import { colors } from '../constants/colors'
 
 const appear = keyframes`

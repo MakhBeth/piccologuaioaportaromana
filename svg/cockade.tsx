@@ -1,6 +1,8 @@
 /** @jsx jsx */ import { FunctionComponent } from 'react'
-import { css, jsx, keyframes } from '@emotion/core'
+import { jsx } from '@emotion/core'
+import { css, keyframes } from '@emotion/react'
 import { colors } from '../constants/colors'
+import { bornValues } from '../constants/bornValues'
 import { Spawn } from './spawn'
 import { Write } from './write'
 
@@ -64,8 +66,8 @@ const Coccarda: FunctionComponent<{
     css={css`
       animation: ${shadow ? bounce2 : bounce} 3s;
       position: absolute;
-      left: ${shadow ? 3 : 0}vw;
-      top: ${shadow ? 3 : 0}vw;
+      left: ${shadow ? 2 : 0}vw;
+      top: ${shadow ? 2 : 0}vw;
       width: 100%;
       will-change: transform;
     `}
@@ -111,14 +113,16 @@ Coccarda.defaultProps = {
   shadow: false,
 }
 
+const size = bornValues.born ? 40 : 60
+
 export const Cockade: React.FunctionComponent = () => (
   <div
     css={css`
       animation: ${opacity} 2s;
       height: 90vw;
       margin: 0 auto;
-      max-height: 60vh;
-      max-width: 60vh;
+      max-height: ${size}vh;
+      max-width: ${size}vh;
       position: relative;
       width: 90vw;
       will-change: transform;

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 
 import { colors } from '../constants/colors'
 
@@ -18,7 +18,7 @@ export const Container = styled.div`
   margin: 0 auto;
   min-height: 100vh;
   overflow: hidden;
-  padding-top: 3vw;
+  padding-top: 2vw;
   position: relative;
   text-align: center;
   width: 95vw;

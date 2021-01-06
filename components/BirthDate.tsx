@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { useCallback, useEffect, useState } from 'react'
-import { css, jsx, keyframes } from '@emotion/core'
+import { jsx } from '@emotion/core'
+import { css, keyframes } from '@emotion/react'
 import { colors } from '../constants/colors'
 import { useTranslation } from '../i18n'
 
@@ -87,6 +87,8 @@ export const BirthDate: React.FunctionComponent<{ time: Date }> = ({
           <div
             css={css`
               display: inline-flex;
+              flex-wrap: wrap;
+              justify-content: center;
               > span {
                 padding: 0 0.2em;
               }

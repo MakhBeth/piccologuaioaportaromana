@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { useCallback, useEffect, useState } from 'react'
-import { css, jsx, keyframes } from '@emotion/core'
+import { jsx } from '@emotion/core'
+import { css, keyframes } from '@emotion/react'
 import { colors } from '../constants/colors'
 import { useTranslation } from '../i18n'
 

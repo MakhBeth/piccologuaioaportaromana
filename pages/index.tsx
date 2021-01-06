@@ -1,5 +1,6 @@
 /** @jsx jsx m */
-import { css, jsx } from '@emotion/core'
+import { jsx } from '@emotion/core'
+import { css } from '@emotion/react'
 import Head from 'next/head'
 import { GitHub } from 'react-feather'
 
@@ -12,8 +13,6 @@ import { colors } from '../constants/colors'
 import { bornValues } from '../constants/bornValues'
 
 import { Cockade } from '../svg/cockade'
-import { Weigth } from '../svg/weigth'
-import { Length } from '../svg/length'
 
 const Home = () => {
   return (
@@ -21,7 +20,6 @@ const Home = () => {
       css={css`
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         min-height: 100vh;
       `}
     >
@@ -98,6 +96,9 @@ const Home = () => {
       </main>
       <div
         css={css`
+          position: absolute;
+          bottom: 0;
+          right: -2px;
           text-align: right;
         `}
       >
@@ -112,7 +113,6 @@ const Home = () => {
             position: relative;
             padding: 3rem 0.5rem 0.5rem 3rem;
             color: ${colors.main.lowest};
-            margin-right: -2px;
             will-change: background-color;
             transition: background-color 300ms;
 
@@ -124,8 +124,6 @@ const Home = () => {
           <GitHub />
         </a>
       </div>
-      {/* <Weigth />
-      <Length /> */}
     </div>
   )
 }

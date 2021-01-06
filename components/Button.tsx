@@ -7,7 +7,7 @@ export const Button: any = styled.button`
   border-radius: 0.25rem;
   border: 0;
   box-shadow: 10px 10px 0 ${colors.shadow};
-  color: ${colors.main.lowest};
+  color: ${colors.neutral.lowest};
   display: inline-block;
   font-size: calc(1.2rem + (16 * 1) * (100vw - 320px) / (1800 - 320));
   margin-bottom: 2rem;
