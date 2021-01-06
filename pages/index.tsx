@@ -62,6 +62,11 @@ const Home = () => {
       >
         <input type="email" name="email" />
       </form>
+      <form name="toto" data-netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="id" />
+        <input type="text" name="weigth" />
+        <input type="text" name="length" />
+      </form>
 
       <main
         css={css`

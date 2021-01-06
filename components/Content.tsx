@@ -6,6 +6,7 @@ import { useTranslation } from '../i18n'
 import { BornValues } from './BornValues'
 import { Button } from './Button'
 import { Notification } from './Notification'
+import { Toto } from './Toto'
 
 const enterAnimation = keyframes`
   from {
@@ -39,6 +40,7 @@ export const Content: FunctionComponent<{ born?: boolean }> = ({ born }) => {
         {t('babyregistry')}
       </Button>
       {!born && <Notification />}
+      {!born && <Toto />}
     </section>
   )
 }

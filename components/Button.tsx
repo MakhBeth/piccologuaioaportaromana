@@ -3,6 +3,7 @@ import { colors } from '../constants/colors'
 
 // TODO type the Button or Anchor
 export const Button: any = styled.button`
+  cursor: pointer;
   background-color: ${colors.neutral.highest};
   border-radius: 0.25rem;
   border: 0;
