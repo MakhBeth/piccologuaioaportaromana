@@ -24,7 +24,7 @@ const Home = () => {
       `}
     >
       <Head>
-        <title>Hello World... Almost</title>
+        <title>{`Hello World${bornValues.born ? '' : '... almost'}!`}</title>
         <meta name="apple-mobile-web-app-title" content="Gaia" />
         <meta name="application-name" content="Gaia" />
         <link
