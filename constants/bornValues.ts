@@ -9,5 +9,5 @@ export const bornValues: VAL = {
   date: new Date('2021-02-12'),
   born: true,
   weigth: 3.37,
-  // length: 50,
+  length: 52,
 }
