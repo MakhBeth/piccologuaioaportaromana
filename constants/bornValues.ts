@@ -6,8 +6,8 @@ type VAL = {
 }
 
 export const bornValues: VAL = {
-  date: new Date('2021-02-15'),
-  // born: true,
-  // weigth: 3.5,
+  date: new Date('2021-02-12'),
+  born: true,
+  weigth: 3.37,
   // length: 50,
 }
