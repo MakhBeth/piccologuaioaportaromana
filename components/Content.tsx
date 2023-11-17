@@ -33,11 +33,10 @@ export const Content: FunctionComponent<{ born?: boolean }> = ({ born }) => {
 
       <Button
         as="a"
-        href="https://www.amazon.it/baby-reg/davide-dipumpo-febbraio-2021-milano/1SYN7DGSB0SVY"
-        target="_blank"
+        href="https://oopswediditagain.com"
         rel="noopener noreferrer"
       >
-        {t('babyregistry')}
+        {t('oops')}
       </Button>
       {!born && <Toto />}
       {!born && <Notification />}
